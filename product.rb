@@ -1,16 +1,14 @@
 class Product
 
-  attr_accessor :name, :base_price, :tax_rate
-
-  def initialize(name, base_price, tax_rate)
+  def initialize(name, price)
     @name = name
-    @base_price = base_price
-    @tax_rate = tax_rate
+    @price = price
+    @quantity = 1
   end
 
+  attr_accessor :name, :price, :quantity
+
+  def total_products
+    @price *=  @quantity
+  end
 end
-
-
-name
-base_price
-tax_rate
