@@ -4,6 +4,7 @@ class Cart
 
   def initialize
     @shopping_cart = []
+    @tax = 0.15
   end
 
   def add(product)
@@ -23,7 +24,7 @@ class Cart
   end
 
   def total_after_tax
-    sum = @total + (@total *= 0.15)
+    sum = @total + (@total * @tax)
     return sum.round(2)
   end
 end
@@ -43,7 +44,6 @@ cart.add(iphone)
 iphone.quantity = 1
 
 p cart
-
 puts ""
 puts "Total before tax: #{cart.total_before_tax}"
 puts "Total after tax: #{cart.total_after_tax}"
